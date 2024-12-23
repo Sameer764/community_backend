@@ -7,7 +7,7 @@ const SECRET_KEY = process.env.JWT_SECRET;
 function authenticate(req, res, next) {
 
     const cookieHeader = req.headers.cookie;
-    // console.log("cookieHeader : ", cookieHeader);
+    console.log("cookieHeader : ", cookieHeader);
 
     if (!cookieHeader) {
         return res.status(400)
@@ -18,7 +18,7 @@ function authenticate(req, res, next) {
                 }
             );
     }
-    const token = req.headers.cookie.substr(11);
+    const token = cookieHeader.split("=")[1];
 
     const decodedToken = jwt.verify(token, SECRET_KEY);
 
