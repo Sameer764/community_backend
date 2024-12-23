@@ -1,9 +1,6 @@
-
-
 const pgp = require('pg-promise')();
 
-const db = pgp(process.env.DATABASE_URL);
-
+const db = pgp('postgres://postgres:sam786@localhost:5432/Community_Backend');
 
 db.connect()
     .then((connection) => {
@@ -14,9 +11,5 @@ db.connect()
         console.error("Error connecting to the database:", error.message || error);
     });
 
+
 module.exports = db;
-
-
-
-
-

@@ -32,34 +32,34 @@ async function createRegisteredUserTable(req, res) {
     }
 }
 
-async function insertNewColumn(req, res) {
-    const { tableName, columnName, columnValue } = req.body;
-    try {
-        let alterQuery = `
-        ALTER TABLE ${tableName}
-        ADD COLUMN ${columnName} ${columnValue}
-    `
-        await db.none(alterQuery)
-        res.send(200)
-        res.json({
-            status: "success",
-            message: "new column created"
-        })
+// async function insertNewColumn(req, res) {
+//     const { tableName, columnName, columnValue } = req.body;
+//     try {
+//         let alterQuery = `
+//         ALTER TABLE ${tableName}
+//         ADD COLUMN ${columnName} ${columnValue}
+//     `
+//         await db.none(alterQuery)
+//         res.send(200)
+//         res.json({
+//             status: "success",
+//             message: "new column created"
+//         })
 
 
-    }
-    catch (error) {
-        res.send(500)
-        res.json({
-            status: "faliled",
-            message: "internal server error"
-        })
-    }
+//     }
+//     catch (error) {
+//         res.send(500)
+//         res.json({
+//             status: "faliled",
+//             message: "internal server error"
+//         })
+//     }
 
 
-}
+// }
 
 module.exports = {
     createRegisteredUserTable,
-    insertNewColumn,
+    // insertNewColumn,
 }

@@ -7,7 +7,7 @@ const SECRET_KEY = process.env.JWT_SECRET;
 function authenticate(req, res, next) {
 
     const cookieHeader = req.headers.cookie;
-    // console.log("cookieHeader : ", cookieHeader);
+    console.log("cookieHeader : ", cookieHeader);
 
     if (!cookieHeader) {
         return res.status(400)
